@@ -1,14 +1,22 @@
 # Global_supply_chain_analysis_ using_MySQL
+## Table of Contents
+- [Description](#description)
+- [Business Introdution](#businessintroduction)
+- [Business Problem](#businessproblem)
+- [Aim Of This Project](#aimofthisproject)
+- [Processes](#processes)
+- [Insights](#insights)
+- [Recommendations](#recommendations)
 
-# Description
+### Description
 This project analyzes a global supply chain dataset to uncover insights about delivery performance, regional sales, product profitability, and demand trends. The goal is to identify operational inefficiencies and recommend strategies for improving logistics, profitability, and customer satisfaction. 
 
-# Business Introduction
+### Business Introduction
 In today’s highly competitive global market, efficient supply chain management has become a critical determinant of business success. Organizations must balance customer satisfaction, cost efficiency, and operational agility to remain competitive. This analysis explores the operational dynamics within a global supply chain dataset, with the goal of uncovering insights that drive data-driven decision-making.
 
 The dataset represents end-to-end order transactions — covering customer details, product categories, regional sales, shipping modes, profit margins, and delivery performance. By leveraging advanced analytics using SQL and visualization tools, this project examines key supply chain performance indicators such as delivery timeliness, profitability by product and region, and demand patterns across time.
 
-# Business Problem
+### Business Problem
 In today’s fast-paced and competitive global market, businesses rely on their supply chain performance to sustain profitability, ensure customer satisfaction, and maintain a competitive edge. However, inefficiencies within supply chain operations — such as late deliveries, unbalanced inventory levels, and uneven profit margins across regions and products — can lead to significant financial losses, reduced customer loyalty, and operational bottlenecks.
 
 The organization in focus manages a diverse portfolio of products distributed across multiple regions through different shipping modes. Despite having access to vast amounts of operational data, the company lacks clear visibility into the performance drivers affecting its supply chain efficiency. Issues such as delayed shipments, high logistics costs, poor demand forecasting, and inconsistent regional performance have created barriers to achieving optimal business outcomes.
@@ -28,7 +36,7 @@ Without a data-driven understanding of these underlying inefficiencies, strategi
 
 How can the company leverage supply chain data analytics to identify performance inefficiencies, optimize delivery operations, improve profitability, and enhance customer satisfaction across regions and product categories?
 
-# Aim of this Project
+### Aim Of This Project
 The purpose of this analysis is to identify bottlenecks, inefficiencies, and opportunities for optimization in logistics and operations. Insights from this study will help stakeholders:
 
 * Improve delivery reliability and reduce late shipments
@@ -39,7 +47,7 @@ The purpose of this analysis is to identify bottlenecks, inefficiencies, and opp
 
 Strengthen customer satisfaction and retention
 
-# Processes
+### Processes
 1. Data Understanding and Collection
 
 * I obtained the DataCo Global Supply Chain Dataset, containing end-to-end order transactions across multiple regions, product categories, and shipping modes.
@@ -104,7 +112,7 @@ Seasonal performance using month and quarter aggregations
 
 * I used RANK(), GROUP BY and other statements for analytical summarization.
 
-# Insights
+### Insights
 1. Delivery Performance
 
 A significant portion of orders were delivered late, with most delays concentrated under the Standard Class shipping mode.
@@ -188,7 +196,7 @@ Leveraging data-driven forecasting and pricing
 Business Implication:
 By addressing key operational bottlenecks, the company can transform its supply chain from reactive to predictive — enabling smoother operations, happier customers, and higher profitability.
 
-# Recommendations
+### Recommendations
 1. Improve Delivery Timeliness and Logistics Efficiency
 
 Adopt a data-driven delivery management system to monitor real-time order progress, identify late shipments early, and trigger proactive interventions.
