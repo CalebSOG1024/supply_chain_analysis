@@ -104,63 +104,196 @@ Seasonal performance using month and quarter aggregations
 
 * I used RANK(), GROUP BY and other statements for analytical summarization.
 
-Example Query:
+# Insights
+1. Delivery Performance
 
-SELECT 
-  `Product Name`,
-  SUM(`Order Item Total`) AS Total_Sales,
-  SUM(`Order Profit Per Order`) AS Total_Profit,
-  RANK() OVER (ORDER BY SUM(`Order Item Total`) DESC) AS Sales_Rank
-FROM DataCoSupplyChainDataset
-GROUP BY `Product Name`;
+A significant portion of orders were delivered late, with most delays concentrated under the Standard Class shipping mode.
 
-5. Performance Insights Generation
+Express Class and First Class deliveries consistently met delivery targets, indicating better carrier reliability.
 
-* I identified key regions driving high sales and profit performance.
+Regions farther from distribution hubs tend to record higher average delivery durations, suggesting logistical inefficiencies in route planning.
 
-* I detected shipping modes linked to frequent late deliveries (e.g., Standard Class).
+Late deliveries have a direct negative impact on customer satisfaction and increase the risk of churn.
 
-* I revealed low-profit, high-sales products, suggesting pricing or cost inefficiency.
+Business Implication:
+Improving delivery timeliness and optimizing carrier selection could lead to faster order fulfillment and higher customer retention.
 
-* I discovered seasonal demand patterns, especially toward Q4 (year-end).
+2. Sales and Profitability Distribution
 
-* I highlighted profit contribution by region and category to guide resource allocation.
+A small number of products and categories generate a majority of total sales (typical Pareto effect: 20% of products drive 80% of sales).
 
-6. Business Recommendations
+Some high-sales products yield low or even negative profits, indicating poor pricing or high cost-to-serve ratios.
 
-Based on insights:
+The Technology and Office Supplies categories show strong sales volumes, while Furniture products, though fewer in number, deliver higher profit margins.
 
-* Implement demand forecasting and seasonal inventory planning.
+Business Implication:
+The company should focus on promoting high-margin products and reassessing pricing strategies for low-profit, high-volume items.
 
-Improve shipping mode allocation and negotiate with underperforming carriers.
+3. Regional Insights
 
-Optimize product pricing for low-margin items.
+The U.S. and European regions dominate total sales, but certain emerging regions (like Asia-Pacific) show high growth potential despite smaller sales bases.
 
-Focus marketing efforts on high-performing regions and profitable product lines.
+Regional profitability varies widely, likely due to differences in shipping costs, tariffs, and local distribution efficiency.
 
-Leverage real-time delivery tracking to improve customer experience.
+Underperforming regions may benefit from localized inventory placement and regional marketing initiatives to boost penetration.
 
-7. Visualization and Reporting
+Business Implication:
+Reallocating resources toward high-profit regions while strengthening logistics in underperforming zones could increase overall supply chain efficiency.
 
-Created interactive Power BI dashboards summarizing:
+4. Demand and Seasonality Trends
 
-Regional performance map
+Sales volumes show clear seasonal patterns, peaking toward Q4 (year-end holidays) and dipping mid-year.
 
-Product profitability matrix
+Certain product categories show stronger seasonal spikes than others (e.g., technology items during Q4 promotions).
 
-Delivery performance chart (on-time vs. late %)
+Lack of proactive forecasting during high-demand periods may cause stockouts, while overstocking in off-peak periods increases inventory holding costs.
 
-Time-series sales trend
+Business Implication:
+Implementing seasonal forecasting models and dynamic inventory policies can improve stock balance, reduce costs, and increase order fulfillment efficiency.
 
-Exported summary visuals to include in GitHub’s visuals/ folder.
+5. Shipping Mode Impact
 
-8. Documentation and Deployment
+Standard Class has the largest volume of shipments but also the highest late-delivery rate.
 
-Documented all SQL scripts and analytical steps in a Jupyter notebook.
+Express Class and Same-Day shipping modes, though more expensive, achieve higher customer satisfaction and lower return rates.
 
-Created a README.md file summarizing the project purpose, methods, and findings.
+Balancing shipping cost vs. speed is crucial — optimizing shipment type based on product value and urgency could improve profit margins.
 
-Uploaded project files to GitHub, including data, visuals, and scripts for open review.
+Business Implication:
+Integrate a shipping mode optimization model that dynamically suggests the most cost-effective yet reliable delivery option for each order.
 
-✅ Outcome:
-The project provided actionable business insights into how the company can improve logistics efficiency, boost profitability, and enhance delivery reliability, forming a data-driven roadmap for supply chain optimization.
+6. Customer Segmentation and Retention
+
+Corporate and high-value customers tend to order larger quantities and generate higher total revenue, but are also more sensitive to delivery delays.
+
+Consumer segments place more frequent but smaller orders, offering steady revenue flow.
+
+Late delivery patterns in corporate orders could lead to contract dissatisfaction or loss of B2B clients.
+
+Business Implication:
+Introduce customer-tier-specific logistics strategies, ensuring premium clients receive faster, priority shipping options and personalized support.
+
+7. Overall Supply Chain Health
+
+The overall supply chain demonstrates strong sales performance, but inefficiencies in logistics timing, regional distribution, and inventory management reduce total profitability.
+
+The company could improve profit margins by:
+
+Reducing late delivery costs
+
+Optimizing carrier selection
+
+Leveraging data-driven forecasting and pricing
+
+Business Implication:
+By addressing key operational bottlenecks, the company can transform its supply chain from reactive to predictive — enabling smoother operations, happier customers, and higher profitability.
+
+# Recommendations
+1. Improve Delivery Timeliness and Logistics Efficiency
+
+Adopt a data-driven delivery management system to monitor real-time order progress, identify late shipments early, and trigger proactive interventions.
+
+Re-evaluate shipping partners — focus on carriers with consistent on-time performance and negotiate service-level agreements (SLAs) with measurable KPIs.
+
+Reassign shipping modes based on product value and urgency:
+
+Use Express or First Class for high-value, time-sensitive products.
+
+Use Standard Class only for low-cost or non-urgent items.
+
+Introduce regional fulfillment centers to reduce delivery lead time and transportation costs.
+
+Expected Impact: Reduced late deliveries, higher customer satisfaction, and improved operational reliability.
+
+2. Optimize Product Portfolio for Profitability
+
+Conduct product-level profitability analysis regularly to identify low-margin, high-volume items.
+
+Adjust pricing strategies or sourcing contracts for products with high sales but low or negative profits.
+
+Focus marketing spend and promotions on high-margin products to increase overall profitability.
+
+Use ABC Inventory Classification:
+
+A-items: High-profit, high-value — prioritize stocking and quality assurance.
+
+B-items: Moderate importance — optimize costs and pricing.
+
+C-items: Low-profit or low-demand — consider phasing out or sourcing cheaper alternatives.
+
+Expected Impact: Improved profit margins and more balanced inventory costs.
+
+3. Strengthen Regional Strategy
+
+Prioritize investments and marketing in top-performing regions with proven sales and profit performance.
+
+For underperforming regions, investigate local barriers such as logistics constraints, distribution gaps, or pricing sensitivity.
+
+Establish regional performance dashboards to track KPIs like sales growth, profitability, and delivery times per region.
+
+Consider localized warehousing or partnerships to reduce costs and improve service levels in remote markets.
+
+Expected Impact: Enhanced regional competitiveness and optimized distribution network efficiency.
+
+4. Implement Advanced Demand Forecasting
+
+Leverage historical sales data and seasonality trends to predict demand peaks and troughs.
+
+Implement machine learning–based forecasting models (e.g., ARIMA, Prophet) to anticipate future demand.
+
+Use forecasts to inform inventory restocking schedules and procurement planning.
+
+Align production and inventory strategies with seasonal cycles, especially during Q4 peaks.
+
+Expected Impact: Lower stockouts and overstocking, improved inventory turnover, and reduced holding costs.
+
+5. Enhance Customer Retention through Service Reliability
+
+Track customer satisfaction metrics tied to delivery accuracy and timeliness.
+
+Introduce priority service tiers for high-value corporate clients to guarantee timely delivery.
+
+Implement personalized communication during the delivery cycle — real-time updates, estimated delivery times, and post-delivery feedback.
+
+Reward repeat customers with loyalty programs or discounts tied to consistent on-time fulfillment.
+
+Expected Impact: Stronger customer loyalty, reduced churn, and better lifetime value.
+
+6. Integrate Performance Dashboards and KPIs
+
+Develop an interactive dashboard (in Power BI or Tableau) to continuously monitor:
+
+Delivery performance by region and shipping mode
+
+Profitability by product and category
+
+Monthly sales and demand patterns
+
+Late delivery rate trends
+
+Use automated alerts for KPI deviations (e.g., “Late Deliveries > 15%” triggers a review).
+
+Expected Impact: Real-time performance monitoring and faster management decision-making.
+
+7. Foster Data-Driven Supply Chain Culture
+
+Train operational teams in data interpretation and visualization tools (Power BI, Excel analytics).
+
+Encourage a culture of continuous improvement through regular performance reviews based on analytics dashboards.
+
+Maintain a centralized data warehouse to consolidate operational, financial, and customer data for holistic insights.
+
+Expected Impact: Greater cross-departmental alignment and sustainable operational improvements.
+
+Summary
+* Implementing these recommendations will help the organization:
+
+* Reduce delivery delays by optimizing logistics and carriers.
+
+* Improve profitability through smarter pricing and product management.
+
+* Anticipate seasonal demand with data-driven forecasting.
+
+* Enhance customer satisfaction and retention through reliable service.
+
+* Establish a continuous feedback loop powered by real-time dashboards.
