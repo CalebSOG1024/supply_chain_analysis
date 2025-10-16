@@ -38,3 +38,129 @@ The purpose of this analysis is to identify bottlenecks, inefficiencies, and opp
 * Increase profit margins through better pricing and sourcing decisions
 
 Strengthen customer satisfaction and retention
+
+# Processes
+1. Data Understanding and Collection
+
+* I obtained the DataCo Global Supply Chain Dataset, containing end-to-end order transactions across multiple regions, product categories, and shipping modes.
+
+* I examined the data structure to understand key fields such as:
+
+Order Date, Delivery Status, Order Region, Product Category, Profit, Sales, Quantity, Shipping Mode, Customer Segment, etc.
+
+* I defined project objectives — to evaluate delivery efficiency, profitability, and demand performance across dimensions.
+
+2. Data Cleaning and Preparation
+
+* I removed duplicate entries, null values, and irrelevant columns.
+
+* I standardized date formats to support time-based analysis (e.g., converting order dates into month, quarter, and year).
+
+* I renamed columns for consistency (e.g., “Order Item Total” → “Sales”, “Order Profit Per Order” → “Profit”).
+
+* I created new calculated fields:
+
+Delivery Duration = Delivery Date - Order Date
+
+Delivery Category = On-Time / Late / Early
+
+Profit Margin (%) = (Profit / Sales) * 100
+
+* I ensured data integrity by validating numeric ranges and category values.
+
+3. Exploratory Data Analysis (EDA)
+
+* I conducted preliminary analysis to understand:
+
+Order and sales distribution across regions, categories, and time
+
+Frequency and percentage of late vs. on-time deliveries
+
+Relationship between shipping mode and delivery performance
+
+Correlation between sales, profit, and order quantity
+
+* I visualized findings using Power BI:
+
+Sales trend over time
+
+Profitability by region
+
+Delivery status by shipping mode
+
+Top-performing products and categories
+
+4. SQL Analysis and Aggregations
+
+* I wrote SQL queries to compute:
+
+Total sales, profit, and quantity per region, product, and category
+
+Late vs. on-time delivery percentages
+
+Ranking of products, categories, and regions by sales, profit, and order quantity
+
+Seasonal performance using month and quarter aggregations
+
+* I used RANK(), GROUP BY and other statements for analytical summarization.
+
+Example Query:
+
+SELECT 
+  `Product Name`,
+  SUM(`Order Item Total`) AS Total_Sales,
+  SUM(`Order Profit Per Order`) AS Total_Profit,
+  RANK() OVER (ORDER BY SUM(`Order Item Total`) DESC) AS Sales_Rank
+FROM DataCoSupplyChainDataset
+GROUP BY `Product Name`;
+
+5. Performance Insights Generation
+
+* I identified key regions driving high sales and profit performance.
+
+* I detected shipping modes linked to frequent late deliveries (e.g., Standard Class).
+
+* I revealed low-profit, high-sales products, suggesting pricing or cost inefficiency.
+
+* I discovered seasonal demand patterns, especially toward Q4 (year-end).
+
+* I highlighted profit contribution by region and category to guide resource allocation.
+
+6. Business Recommendations
+
+Based on insights:
+
+* Implement demand forecasting and seasonal inventory planning.
+
+Improve shipping mode allocation and negotiate with underperforming carriers.
+
+Optimize product pricing for low-margin items.
+
+Focus marketing efforts on high-performing regions and profitable product lines.
+
+Leverage real-time delivery tracking to improve customer experience.
+
+7. Visualization and Reporting
+
+Created interactive Power BI dashboards summarizing:
+
+Regional performance map
+
+Product profitability matrix
+
+Delivery performance chart (on-time vs. late %)
+
+Time-series sales trend
+
+Exported summary visuals to include in GitHub’s visuals/ folder.
+
+8. Documentation and Deployment
+
+Documented all SQL scripts and analytical steps in a Jupyter notebook.
+
+Created a README.md file summarizing the project purpose, methods, and findings.
+
+Uploaded project files to GitHub, including data, visuals, and scripts for open review.
+
+✅ Outcome:
+The project provided actionable business insights into how the company can improve logistics efficiency, boost profitability, and enhance delivery reliability, forming a data-driven roadmap for supply chain optimization.
